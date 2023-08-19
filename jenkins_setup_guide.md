@@ -44,7 +44,7 @@ chmod 700 /var/lib/jenkins/.ssh
 ssh-keygen -t rsa
 ```
 
-### Authorise Controller to SSH to an agent
+### Authorise Controller to SSH to an Agent
 Create an RSA SSH key on the controller node and view it:
 ```bash
 sudo su jenkins
@@ -57,7 +57,7 @@ sudo su jenkins
 vim /var/lib/jenkins/.ssh/authorized_keys
 ```
 
-### Configure in Jenkins
+### Configure Agent in Jenkins
 1. User is `jenkins`
 2. Root directory `/var/lib/jenkins`
 3. Create a credential, specifying `jenkins` as the user and provide the private key of the controller machine in `/var/lib/jenkins/.ssh/id_rsa`.
