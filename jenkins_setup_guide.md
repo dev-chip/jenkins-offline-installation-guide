@@ -1,11 +1,24 @@
 # Jenkins Setup for Ubuntu
 ## Setup Jenkins Coordinator
+### Install Java
+Install Java on the target machine. Jenkins requires [Java 11 or 17](https://www.jenkins.io/doc/administration/requirements/java/).
+
 ### Install Jenkins 
+#### With Internet Connection
 ```bash
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
 sudo apt-get install jenkins
+```
+#### Without Internet Connection (Offline)
+1. Download the `jenkins.war` file from the latest release and install:
+```bash
+curl https://updates.jenkins.io/latest/jenkins.war
+```
+2. Transfer the `jenkins.war` file to the offline target Jenkins host and install:
+```bash
+java -jar jenkins. war
 ```
 
 ### Open firewall
